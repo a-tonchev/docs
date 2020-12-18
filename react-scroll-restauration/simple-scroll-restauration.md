@@ -41,7 +41,6 @@ class ScrollStore {
     if (number !== 0) {
       if (scrollMap.size >= MAX_MAP_ELEMENTS) scrollMap.clear();
       scrollMap.set(key, number);
-      console.log(key, number, scrollMap, scrollMap.size);
     }
   }
 
