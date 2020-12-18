@@ -34,12 +34,25 @@ The scroll store:
 
 ```js
 const scrollMap = new Map();
-const MAX_MAP_ELEMENTS = 5;
+const MAX_MAP_ELEMENTS = 10;
+const CLEAN_TO = 5;
 
 class ScrollStore {
+  static clean() {
+    if (scrollMap.size >= MAX_MAP_ELEMENTS) {
+      let index = 0;
+      for (const [key] of scrollMap) {
+        if (index <= CLEAN_TO) {
+          scrollMap.delete(key);
+        }
+        index++;
+      }
+    }
+  }
+
   static set(key, number) {
     if (number !== 0) {
-      if (scrollMap.size >= MAX_MAP_ELEMENTS) scrollMap.clear();
+      ScrollStore.clean();
       scrollMap.set(key, number);
     }
   }
@@ -53,4 +66,4 @@ export default ScrollStore;
 
 ```
 
-It makes probably no sense to store more than 5 sites. But if you want you can change it, or remove this check completely to store unlimited pages in the history.
+It makes probably no sense to store more than 5-10 sites. But if you want you can change it, or remove this check completely to store unlimited pages in the history.
