@@ -1,4 +1,4 @@
-# A simple Scroll Restoration in React Router (But can be modified easily):
+# A simple Scroll Restoration in React Router (But can be modified easily)
 
 Your component:
 
